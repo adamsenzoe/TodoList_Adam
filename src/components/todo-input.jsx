@@ -15,6 +15,11 @@ function TodoInput() {
   const handleClick = (e) => {
     e.preventDefault();
 
+    // Cek apakah input kosong
+    if (todoInput.trim() === "") {
+      return;
+    }
+
     if (isEdit) {
       let cloneTodo = [...todos];
       let index = cloneTodo.findIndex((item) => item.id == todoEdit.id);
@@ -34,6 +39,7 @@ function TodoInput() {
 
     setTodoInput("");
   };
+
 
   return (
     <form className="flex flex-row justify-between">
